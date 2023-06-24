@@ -1,7 +1,7 @@
 export default function Stats() {
   return (
-    <footer>
-      <h4>Stats</h4>
+    <footer className='bg-maroon text-whip py-8 text-lg font-bold text-center'>
+      <p>You have X items on your list and you&apos;ve already packed X (X%)</p>
     </footer>
   );
 }
