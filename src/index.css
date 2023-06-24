@@ -12,4 +12,8 @@
   .pill {
     @apply bg-whip text-navy font-body px-8 py-3 text-lg font-bold border-none rounded-full cursor-pointer;
   }
+
+  .pill-sm {
+    @apply px-6 py-2 mx-2 text-sm font-bold uppercase;
+  }
 }
