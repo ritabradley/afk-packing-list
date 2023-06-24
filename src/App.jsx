@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className='app grid w-full h-screen'>
+    <div className='app font-body text-navy grid w-full h-screen'>
       <Header />
       <Form />
       <PackingList />
