@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.list ul {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
 @layer components {
   .pill {
     @apply bg-whip text-navy font-body px-8 py-3 text-lg font-bold border-none rounded-full cursor-pointer;
