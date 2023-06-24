@@ -11,20 +11,15 @@ function App() {
 
   function onFormSubmit(e) {
     e.preventDefault();
-    // get value from select with id of `quantity`
     const quantity = document.querySelector(`#quantity`).value;
-    // get value from input with id of `description`
     const description = document.querySelector(`#description`).value;
-    // create a new item object with the values from the form
     const newItem = {
       id: items.length + 1,
       quantity,
       description,
       packed: false,
     };
-    // add the new item to the items array
     setItems([...items, newItem]);
-    // clear the form
     document.querySelector(`#quantity`).value = ``;
     document.querySelector(`#description`).value = ``;
     console.log(`submitted`);
