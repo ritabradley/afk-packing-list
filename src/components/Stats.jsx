@@ -1,7 +1,7 @@
 export default function Stats() {
   return (
-    <section>
+    <footer>
       <h4>Stats</h4>
-    </section>
+    </footer>
   );
 }
