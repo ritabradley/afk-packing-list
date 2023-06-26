@@ -44,6 +44,18 @@ function App() {
     setItems(updatedItems);
   }
 
+  function calculatePackedItems() {
+    return items.filter((item) => item.packed).length;
+  }
+
+  function calculatePercentagePacked() {
+    return Math.round((calculatePackedItems() / items.length) * 100);
+  }
+
+  const numOfItems = items.length;
+  const numOfPacked = calculatePackedItems();
+  const percentPacked = numOfItems > 0 ? calculatePercentagePacked() : 0;
+
   return (
     <div className='app font-body text-navy grid w-full h-screen'>
       <Header />
@@ -55,7 +67,7 @@ function App() {
         onQuantityChange={handleQuantityChange}
       />
       <PackingList items={items} onPackedChange={handlePackedChange} onRemoveItem={handleRemoveItem} />
-      <Stats />
+      <Stats numOfItems={numOfItems} numOfPacked={numOfPacked} percentPacked={percentPacked} />
     </div>
   );
 }
