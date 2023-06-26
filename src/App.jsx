@@ -23,6 +23,7 @@ function App() {
     e.preventDefault();
     const newItem = {
       id: items.length + 1,
+      inputOrder: items.length + 1,
       quantity: quantity,
       description: description,
       packed: false,
@@ -52,6 +53,43 @@ function App() {
     return Math.round((calculatePackedItems() / items.length) * 100);
   }
 
+  function handleSort(e) {
+    const sortBy = e.target.value;
+    setItems((currentItems) => {
+      const sortedItems = [...currentItems];
+      if (sortBy === 'input') {
+        sortedItems.sort((a, b) => a.inputOrder - b.inputOrder);
+        return sortedItems;
+      } else if (sortBy === 'description') {
+        sortedItems.sort((a, b) => {
+          if (a.description.toLowerCase() < b.description.toLowerCase()) {
+            return -1;
+          } else if (a.description.toLowerCase() > b.description.toLowerCase()) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+        return sortedItems;
+      } else if (sortBy === 'packed') {
+        sortedItems.sort((a, b) => {
+          if (a.packed < b.packed) {
+            return -1;
+          } else if (a.packed > b.packed) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+        return sortedItems;
+      }
+    });
+  }
+
+  function handleClearList() {
+    setItems([]);
+  }
+
   const numOfItems = items.length;
   const numOfPacked = calculatePackedItems();
   const percentPacked = numOfItems > 0 ? calculatePercentagePacked() : 0;
@@ -66,7 +104,13 @@ function App() {
         onDescriptionChange={handleDescriptionChange}
         onQuantityChange={handleQuantityChange}
       />
-      <PackingList items={items} onPackedChange={handlePackedChange} onRemoveItem={handleRemoveItem} />
+      <PackingList
+        items={items}
+        onPackedChange={handlePackedChange}
+        onRemoveItem={handleRemoveItem}
+        onClearList={handleClearList}
+        onSort={handleSort}
+      />
       <Stats numOfItems={numOfItems} numOfPacked={numOfPacked} percentPacked={percentPacked} />
     </div>
   );
