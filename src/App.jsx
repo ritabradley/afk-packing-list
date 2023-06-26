@@ -21,7 +21,7 @@ function App() {
     };
     setItems([...items, newItem]);
     // set the quantity field back to default
-    document.querySelector(`#quantity`).value = 'DEFAULT';
+    document.querySelector(`#quantity`).value = 1;
     // clear the description field
     document.querySelector(`#description`).value = '';
   }
