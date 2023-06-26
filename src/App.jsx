@@ -39,6 +39,11 @@ function App() {
     setItems(newItems);
   }
 
+  function handleRemoveItem(id) {
+    const updatedItems = items.filter((item) => item.id !== id);
+    setItems(updatedItems);
+  }
+
   return (
     <div className='app font-body text-navy grid w-full h-screen'>
       <Header />
@@ -49,7 +54,7 @@ function App() {
         onDescriptionChange={handleDescriptionChange}
         onQuantityChange={handleQuantityChange}
       />
-      <PackingList items={items} onPackedChange={handlePackedChange} />
+      <PackingList items={items} onPackedChange={handlePackedChange} onRemoveItem={handleRemoveItem} />
       <Stats />
     </div>
   );
