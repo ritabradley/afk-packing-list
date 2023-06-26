@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const [items, setItems] = useState([]);
-
+  console.log(items);
   function onFormSubmit(e) {
     e.preventDefault();
     const quantity = document.querySelector(`#quantity`).value;
@@ -20,9 +20,10 @@ function App() {
       packed: false,
     };
     setItems([...items, newItem]);
-    document.querySelector(`#quantity`).value = ``;
-    document.querySelector(`#description`).value = ``;
-    console.log(`submitted`);
+    // set the quantity field back to default
+    document.querySelector(`#quantity`).value = 'DEFAULT';
+    // clear the description field
+    document.querySelector(`#description`).value = '';
   }
 
   return (
