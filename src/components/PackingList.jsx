@@ -18,6 +18,14 @@ export default function PackingList({ items, onPackedChange, onRemoveItem }) {
           );
         })}
       </ul>
+      <div>
+        <select className='pill pill-sm'>
+          <option value='input'>Sort by input order</option>
+          <option value='description'>Sort by description</option>
+          <option value='packed'>Sort by packed status</option>
+        </select>
+        <button className='pill pill-sm'>Clear List</button>
+      </div>
     </section>
   );
 }
