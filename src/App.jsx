@@ -32,6 +32,13 @@ function App() {
     setDescription('');
   }
 
+  // Handle packed state of each item
+  function handlePackedChange(id) {
+    // Create a new array with the same items, but with the packed state of the selected item toggled
+    const newItems = items.map((item) => (item.id === id ? { ...item, packed: !item.packed } : item));
+    setItems(newItems);
+  }
+
   return (
     <div className='app font-body text-navy grid w-full h-screen'>
       <Header />
@@ -42,7 +49,7 @@ function App() {
         onDescriptionChange={handleDescriptionChange}
         onQuantityChange={handleQuantityChange}
       />
-      <PackingList items={items} />
+      <PackingList items={items} onPackedChange={handlePackedChange} />
       <Stats />
     </div>
   );
