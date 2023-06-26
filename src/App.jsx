@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const [items, setItems] = useState([]);
-  console.log(items);
+
   function onFormSubmit(e) {
     e.preventDefault();
     const quantity = document.querySelector(`#quantity`).value;
