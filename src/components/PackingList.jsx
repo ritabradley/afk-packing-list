@@ -7,7 +7,6 @@ export default function PackingList({ items }) {
         {items.map((item) => {
           return <Item key={item.id} description={item.description} quantity={item.quantity} packed={item.packed} />;
         })}
-        <Item />
       </ul>
     </section>
   );
