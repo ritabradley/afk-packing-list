@@ -6,36 +6,19 @@ export default function Form({ onSubmit }) {
         <option value='DEFAULT' disabled>
           Quantity
         </option>
-        <option value='1'>1</option>
-        <option value='2'>2</option>
-        <option value='3'>3</option>
-        <option value='4'>4</option>
-        <option value='5'>5</option>
-        <option value='6'>6</option>
-        <option value='7'>7</option>
-        <option value='8'>8</option>
-        <option value='9'>9</option>
-        <option value='10'>10</option>
-        <option value='11'>11</option>
-        <option value='12'>12</option>
-        <option value='13'>13</option>
-        <option value='14'>14</option>
-        <option value='15'>15</option>
-        <option value='16'>16</option>
-        <option value='17'>17</option>
-        <option value='18'>18</option>
-        <option value='19'>19</option>
-        <option value='20'>20</option>
-        <option value='21'>21</option>
-        <option value='22'>22</option>
-        <option value='23'>23</option>
-        <option value='24'>24</option>
-        <option value='25'>25</option>
-        <option value='26'>26</option>
-        <option value='27'>27</option>
-        <option value='28'>28</option>
-        <option value='29'>29</option>
-        <option value='30'>30</option>
+        {/* 
+          1. First, we create an array with 20 empty items by using the Array constructor and the ES6 array spread operator. 
+          2. Then, we call the map() method to iterate over the array and create a new array with the number of options we need.
+          3. The map() method calls the callback function on each array item. 
+          4. The value of the first argument is always the current array item. 
+          5. The value of the second argument is always the index of the current item. 
+          6. We use the index to generate a unique key for each option. 
+          */}
+        {[...Array(20)].map((_, i) => (
+          <option key={i} value={i + 1}>
+            {i + 1}
+          </option>
+        ))}
       </select>
       <input id='description' className='pill focus:outline-lava' type='text' placeholder='Item...' />
       <button onClick={onSubmit} className='pill bg-cerulean focus:outline-navy uppercase' type='submit'>
