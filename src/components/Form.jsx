@@ -1,8 +1,8 @@
 export default function Form({ onSubmit }) {
   return (
-    <form className='bg-lava py-7 flex items-center justify-center gap-3'>
+    <form className='bg-lava py-7 flex items-center justify-center gap-3' onSubmit={onSubmit}>
       <h3 className='mr-4 text-2xl'>what do you need for your trip?</h3>
-      <select value={'DEFAULT'} id='quantity' className='pill focus:outline-lava'>
+      <select defaultValue={'DEFAULT'} id='quantity' className='pill focus:outline-lava'>
         <option value='DEFAULT' disabled>
           Quantity
         </option>
@@ -21,7 +21,7 @@ export default function Form({ onSubmit }) {
         ))}
       </select>
       <input id='description' className='pill focus:outline-lava' type='text' placeholder='Item...' />
-      <button onClick={onSubmit} className='pill bg-cerulean focus:outline-navy uppercase' type='submit'>
+      <button className='pill bg-cerulean focus:outline-navy uppercase' type='submit'>
         Add
       </button>
     </form>
