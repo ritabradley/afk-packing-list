@@ -8,28 +8,40 @@ import './App.css';
 
 function App() {
   const [items, setItems] = useState([]);
+  const [description, setDescription] = useState('');
+  const [quantity, setQuantity] = useState(1);
 
-  function onFormSubmit(e) {
+  function handleQuantityChange(e) {
+    setQuantity(e.target.value);
+  }
+
+  function handleDescriptionChange(e) {
+    setDescription(e.target.value);
+  }
+
+  function handleFormSubmit(e) {
     e.preventDefault();
-    const quantity = document.querySelector(`#quantity`).value;
-    const description = document.querySelector(`#description`).value;
     const newItem = {
       id: items.length + 1,
-      quantity,
-      description,
+      quantity: quantity,
+      description: description,
       packed: false,
     };
     setItems([...items, newItem]);
-    // set the quantity field back to default
-    document.querySelector(`#quantity`).value = 1;
-    // clear the description field
-    document.querySelector(`#description`).value = '';
+    setQuantity(1);
+    setDescription('');
   }
 
   return (
     <div className='app font-body text-navy grid w-full h-screen'>
       <Header />
-      <Form onSubmit={onFormSubmit} />
+      <Form
+        onFormSubmit={handleFormSubmit}
+        quantity={quantity}
+        description={description}
+        onDescriptionChange={handleDescriptionChange}
+        onQuantityChange={handleQuantityChange}
+      />
       <PackingList items={items} />
       <Stats />
     </div>
