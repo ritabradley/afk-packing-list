@@ -1,6 +1,6 @@
 export default function Form({ onFormSubmit, quantity, description, onQuantityChange, onDescriptionChange }) {
   return (
-    <form className='bg-lava py-7 flex items-center justify-center gap-3' onSubmit={onFormSubmit}>
+    <form className='bg-lava p-7 md:flex-row  flex flex-col items-center justify-center gap-3' onSubmit={onFormSubmit}>
       <h3 className='mr-4 text-2xl'>what do you need for your trip?</h3>
       <div className='flex gap-3'>
         <select value={quantity} onChange={onQuantityChange} id='quantity' className='pill focus:outline-lava'>
@@ -28,7 +28,7 @@ export default function Form({ onFormSubmit, quantity, description, onQuantityCh
         />
       </div>
 
-      <button className='pill bg-cerulean focus:outline-navy uppercase' type='submit'>
+      <button className='pill bg-cerulean focus:outline-navy md:w-auto w-full uppercase' type='submit'>
         Add
       </button>
     </form>
